@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>وکستا | Voxta Legal</title>
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- افزودن قابلیت PWA -->
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png" />
+  <meta name="theme-color" content="#2d2d7f" />
+</head>
+
+<body>
+  <header>
+    <h1>💼 وکستا - مشاوره حقوقی جهانی</h1>
+    <select id="languageSwitcher" onchange="switchLanguage(this.value)">
+      <option value="fa">فارسی</option>
+      <option value="en">English</option>
+      <option value="ar">العربية</option>
+      <option value="tr">Türkçe</option>
+    </select>
+  </header>
+
+  <main>
+    <h2 id="lawyerListTitle">لیست وکلا</h2>
+    <ul id="lawyerList"></ul>
+  </main>
+
+  <footer>
+    <p>تمام حقوق محفوظ است © Voxta 2025</p>
+  </footer>
+
+  <script src="app.js"></script>
+
+  <!-- ثبت Service Worker برای PWA -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker
+        .register('service-worker.js')
+        .then(reg => console.log('✅ Service Worker registered:', reg))
+        .catch(err => console.error('❌ Service Worker registration failed:', err));
+    }
+  </script>
+</body>
+</html>
